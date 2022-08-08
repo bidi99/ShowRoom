@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>Model X</title>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" th:href="@{/index}">CliqueAuto</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/products}">Produse</a></li>
+					<li><a th:href="@{/about}">Despre</a></li>
+					<li><a th:href="@{/contact}">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right top-menu">
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+							<li class="eborder-top">
+								<a th:href="@{/profile}"> Profil</a>
+							</li>
+							<li>
+								<a th:href="@{/login}"> Log Out</a>
+							</li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<li data-target="#myCarousel" data-slide-to="3"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img class="img-responsive" src="assets/images/Model_X_Fata.jpg" />
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="assets/images/Model_X_Lateral.jpg" />
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="assets/images/Model_X_Spate.jpg" />
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="assets/images/Model_X_Interior.jpg" />
+						</div>
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div>
+					<h3><b>Descriere</b></h3>
+					<p>Tesla Model X este cel mai nepoluant SUV din lume. Asteptarile clientilor si fanilor Tesla pentru
+						versiunea SUV par a fi luat sfarsit. Fondatorul companiei Tesla, Elon Musk, a lansat acest model
+						fara lasere si jocuri de lumini, fara animatori si spectacol, simplu si elocvent. Noul model
+						vine pe piata cu cele mai performante sisteme de siguranta pasive si active, Automatic Emergency
+						Braking si Side Collision Avoidance fiind oferite de la echiparea standard. Din punctul de
+						vedere al caroseriei, Tesla Model X are cel mai bun coeficient de aerodinamicitate din istoria
+						SUV-urilor: 0,24. Standard Model X vine cu 7 locuri, dar optional se poate livra si numai cu 6
+						locuri. Portierele din spate sunt tip „fluture” si sunt actionate electric.
+
+						Tesla propune doua variante de motorizare: 90D cu 518 CP (distribuiti 259 CP puntea fata si 259
+						CP puntea spate prin cele doua motoare electrice) si P90D cu 762 CP (distribuiti 259 CP puntea
+						fata si 503 CP puntea spate). Autonomia celor doua versiuni este de 413 km (P90D), respectiv 400
+						km (90D).</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div>
+					<h4>Model X Dual Motor(AWD)</h4>
+					<h6>35000$</h6>
+					<b>Dotari:</b>
+					<ul>
+						<li>Autonomie 531km</li>
+						<li>Viteza maxima 249km/h</li>
+						<li>0-100km-4,0s </li>
+						<li>Autopilot avansat</li>
+						<li>Capabilitate full self-driving</li>
+					</ul>
+					<form action="" method="get">
+						<input type="hidden" id="name" name="name" value="Model X">
+						<input type="hidden" id="price" name="price" value="35000$">
+						<input type="submit" class="btn btn-info" value="Cumpara">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+</body>
+
+</html>

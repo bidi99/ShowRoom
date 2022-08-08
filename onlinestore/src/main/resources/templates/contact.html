@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>Contact</title>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" th:href="@{/index}">CliqueAuto</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/products}">Produse</a></li>
+					<li><a th:href="@{/about}">Despre</a></li>
+					<li><a th:href="@{/contact}">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right top-menu">
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+							<li class="eborder-top">
+								<a th:href="@{/profile}"> Profil</a>
+							</li>
+							<li>
+								<a th:href="@{/login}"> Log Out</a>
+							</li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Contacteaza-ne</h1>
+			</div>
+			<div class="col-md-6">
+				<div id="map">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.823180043481!2d25.595937994378087!3d45.64321340120384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35b7c6db4380f%3A0x617b7d930575e87a!2sCorpul%20K%2C%20Strada%20Nicolae%20B%C4%83lcescu%2056%2C%20Bra%C8%99ov%20500019!5e0!3m2!1sro!2sro!4v1641639946021!5m2!1sro!2sro"
+						width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<ul>
+					<li>Amariei Rares - <a href="#">0772133822 </a></li>
+					<h6>Amariei Rares este un inginer, proiectant industrial, inventateor, inovator, programator,
+						antreprenor tehnologic si viitor doctorand in ale bisericii.</h6>
+					<li>Bidilica Ionut -<a href="#"> 0771933221</a></li>
+					<h6>Bidilica Ionut, cunoscut ca si Pantera Roz al Finantelor, este co-fondator al Clique-Auto
+						Corporation, el fiind si cel mai important detinator de actiuni al companiei.</h6>
+					<li>Oprea Vlad - <a href="#">0751992888</a></li>
+					<h6>Oprea Vlad este un investitor , om de afaceri si filantrop roman. Este recunoscut ca fiind
+						al 3-lea cel mai bogat om din Romania. </h6>
+					<li>Patratanu Theodor -<a href="#"> 0751822178</a></li>
+					<h6>Patratanu Theodor este co-fondator al firmelor Ford Motor Company si Clique-Auto Corporation
+						si autor al unui nou mod de organizare a productiei industriale, cunoscut sub denumirea de
+						Theodorism.</h6>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

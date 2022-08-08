@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="assets/js/register.js"></script>
+
+	<title>Register</title>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="col-md-offset-4 col-md-4">
+				<h2 class="text-center">Inregistrare</h2>
+			</div>
+		</div>
+		<form class="row" th:action="@{/users/addNew}" method="POST">
+			<div class="col-md-offset-4 col-md-4">
+				<input type="text" class="form-control" placeholder="Username" autofocus name="username">
+				<input type="text" class="form-control" placeholder="Email" autofocus name="email">
+				<input type="text" class="form-control" placeholder="Nume" autofocus name="lastname">
+				<input type="text" class="form-control" placeholder="Prenume" autofocus name="firstname">
+				<input type="text" class="form-control" placeholder="Strada" autofocus name="strada">
+				<input type="text" class="form-control" placeholder="Oras" autofocus name="oras">
+				<input type="text" class="form-control" placeholder="Judet" autofocus name="judet">
+				<input type="text" class="form-control" placeholder="Cod Postal" autofocus name="codpostal">
+				<input type="text" class="form-control" placeholder="Number Telefon" autofocus name="number">
+				<input type="password" class="form-control" placeholder="Password" id="password" name="password">
+				<input type="password" class="form-control" placeholder="Confirm Password" id="confirmPassword"><br>
+				<button class="btn btn-info btn-block" type="submit">Register</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>

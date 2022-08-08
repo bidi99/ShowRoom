@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>About Page</title>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" th:href="@{/index}">CliqueAuto</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/products}">Produse</a></li>
+					<li><a th:href="@{/about}">Despre</a></li>
+					<li><a th:href="@{/contact}">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right top-menu">
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+							<li class="eborder-top">
+								<a th:href="@{/profile}"> Profil</a>
+							</li>
+							<li>
+								<a th:href="@{/login}"> Log Out</a>
+							</li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1><b>Despre Noi</b></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<img class="img-responsive" src="assets/images/about-us.jpg">
+			</div>
+			<div class="col-md-6">
+				<p>De mai bine de 10 ani Clique Auto servește piața mașinilor second hand.Mașinile din
+					stocul nostru nu au vechime mai mare de 5 ani deoarece dorim ca viitorii clienți să se
+					bucure de mașini aproape noi la cele mai competitive prețuri.
+					<br>
+					Promitem să livrăm aceeași calitate a serviciilor, similară cu a mașinilor pe care le
+					promovăm, mașini produse pentru piața din Germania și utilizate pe teritoriul Germaniei, iar
+					echipa tânăra, entuziastă și profesionistă de pe intreg teritoriul României vă garantează
+					standardele promise si aceeași dedicare, implicare și pasiune în fiecare zi. Produsele pe
+					care le promovam provin din surse sigure, certificate, mașinile sunt oferite cu istoricul la
+					zi, kilometri reali, expertiza tehnică, iar toate informațiile vă sunt puse la dispoziție în
+					cea mai transparentă și documentată manieră. În același timp, vă oferim consultanță pe tot
+					procesul desfășurării tranzacțiilor, referitor la mașina dorită, oferirea celei mai
+					potrivite variante transport și livrarea mașinii în locația dorită, identificare RAR,
+					înmatriculare si asigurări.
+					<br>
+					Vă mulțumim că vă doriți să ne deveniți parteneri și vă asigurăm de tot suportul și sprijinul
+					necesar transformării unui proces de achiziție, care poate părea complicat și complex,
+					într-o experiență cât mai plăcuta și confortabilă pentru dumneavoastră.
+					<p />
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

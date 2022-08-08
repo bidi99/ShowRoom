@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="assets/js/profile.js"></script>
+
+	<title>User Profile</title>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" th:href="@{/index}">CliqueAuto</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/products}">Produse</a></li>
+					<li><a th:href="@{/about}">Despre</a></li>
+					<li><a th:href="@{/contact}">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right top-menu">
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+							<li class="eborder-top">
+								<a th:href="@{/profile}"> Profil</a>
+							</li>
+							<li>
+								<a th:href="@{/login}"> Log Out</a>
+							</li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<h3 class="col-md-8 col-md-offset-2 text-left">Detalii Cont:</h3>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<table class="table table-bordered table-dark">
+					<thead>
+						<tr>
+							<th scope="col">Username</th>
+							<th scope="col">Prenume</th>
+							<th scope="col">Nume</th>
+							<th scope="col">Numar Telefon</th>
+							<th scope="col">E-mail</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user:${users}">
+							<td th:text="${user.username}"></td>
+							<td th:text="${user.firstname}"></td>
+							<td th:text="${user.lastname}"></td>
+							<td th:text="${user.number}"></td>
+							<td th:text="${user.email}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<button type="button" class="btn btn-info btn-md" data-toggle="modal"
+					data-target="#editModal">Edit</button>
+			</div>
+		</div>
+		<div class="row">
+			<h3 class="col-md-8 col-md-offset-2 text-left">Adresa:</h3>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<table class="table table-bordered table-dark">
+					<thead>
+						<tr>
+							<th scope="col">Strada</th>
+							<th scope="col">Oras</th>
+							<th scope="col">Judet</th>
+							<th scope="col">Cod Postal</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user:${users}">
+							<td th:text="${user.strada}"></td>
+							<td th:text="${user.judet}"></td>
+							<td th:text="${user.oras}"></td>
+							<td th:text="${user.codpostal}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<button type="button" class="btn btn-info btn-md" data-toggle="modal"
+					data-target="#edit2Modal">Edit</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+	<form th:action="@{/users/update}" method="put">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editModalLabel">Editare:</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<input type="hidden" class="form-control" id="idEdit" name="id" readonly>
+					</div>
+
+					<div class="form-group">
+						<label for="lastnameEdit" class="col-form-label">Nume:</label>
+						<input type="text" class="form-control" id="lastnameEdit" name="lastname">
+					</div>
+
+					<div class="form-group">
+						<label for="firstnameEdit" class="col-form-label">Prenume:</label>
+						<input type="text" class="form-control" id="firstnameEdit" name="firstname">
+					</div>
+
+					<div class="form-group">
+						<label for="usernameEdit" class="col-form-label">Username:</label>
+						<input type="text" class="form-control" id="usernameEdit" name="username">
+					</div>
+
+					<div class="form-group">
+						<label for="emailEdit" class="col-form-label">E-mail:</label>
+						<input type="text" class="form-control" id="emailEdit" name="email">
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="modal fade" id="edit2Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+	<form th:action="@{/users/update}" method="put">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editModalLabel">Editare:</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<input type="hidden" class="form-control" id="idEdit" name="id" readonly>
+					</div>
+
+					<div class="form-group">
+						<label for="stradaEdit" class="col-form-label">Strada:</label>
+						<input type="text" class="form-control" id="stradaEdit" name="strada">
+					</div>
+
+					<div class="form-group">
+						<label for="orasEdit" class="col-form-label">Oras:</label>
+						<input type="text" class="form-control" id="orasEdit" name="oras">
+					</div>
+
+					<div class="form-group">
+						<label for="judetEdit" class="col-form-label">Judet:</label>
+						<input type="text" class="form-control" id="judetEdit" name="judet">
+					</div>
+
+					<div class="form-group">
+						<label for="ccodpostalEdit" class="col-form-label">Cod Postal:</label>
+						<input type="text" class="form-control" id="codpostalEdit" name="codpostal">
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+</html>

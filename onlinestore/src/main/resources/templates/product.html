@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" th:href="@{/index}">CliqueAuto</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/products}">Produse</a></li>
+					<li><a th:href="@{/about}">Despre</a></li>
+					<li><a th:href="@{/contact}">Contact</a></li>
+				</ul>
+				<ul class="nav pull-right top-menu">
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="username" th:text="${#authentication.getPrincipal().getUsername()}"></span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+							<li class="eborder-top">
+								<a th:href="@{/profile}"> Profil</a>
+							</li>
+							<li>
+								<a th:href="@{/login}"> Log Out</a>
+							</li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-dark">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">Nume</th>
+							<th scope="col">Pret</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each=" product:${products}">
+							<td><a th:href="@{/{name}(name=${product.name})}"><img
+										th:src="@{${'/assets/images/'+ product.name + '.jpg'}}" width="400px" /></a>
+							</td>
+							<td th:text="${product.name}"></td>
+							<td th:text="${product.price}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
